@@ -356,6 +356,9 @@
 "Assets/Scripts/Enemy.cs"
 "Assets/Scripts/FireBullet.cs"
 "Assets/Scripts/JumpPad.cs"
+"Assets/Scripts/MarchingCubes/Chunk.cs"
+"Assets/Scripts/MarchingCubes/GridMetrics.cs"
+"Assets/Scripts/MarchingCubes/NoiseGenerator.cs"
 "Assets/Scripts/MenuButtons.cs"
 "Assets/Scripts/Movement.cs"
 "Assets/Scripts/Player.cs"
@@ -364,7 +367,7 @@
 "Assets/Scripts/Terrain/TerrainManager.cs"
 "Assets/Scripts/TurnToCamera.cs"
 -langversion:9.0
-
+/unsafe+
 /deterministic
 /optimize+
 /debug:portable

@@ -31,19 +31,22 @@ public class TerrainManager : MonoBehaviour
     }
     private void _UpdateUI()
     {
-        if (_scale == _lastScale)
+        if (_scale == _lastScale) {
             return;
+        }
+        else{
+            _RecomputeNoise();
 
-        _RecomputeNoise();
-
-        _lastScale = _scale;
+            _lastScale = _scale;
+        }
     }
 
     private void OnGUI()
     {
         _scale = GUI.HorizontalSlider(new Rect(120f, 0f, 100f, 20f), _scale, 0.01f, 0.3f);
-        if (GUI.changed)
+        if (GUI.changed) {
             _UpdateUI();
+        }
     }
 
     public void setnoise(float[,] noise){

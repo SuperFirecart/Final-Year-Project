@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PerlinNoise : Noise
 {
-    public override float GetNoiseMap(float x, float y, float scale = 1)
+    public override float GetNoiseMap(float x, float y, float scale = 1f)
     {
         x = x * scale;
         y = y * scale;
