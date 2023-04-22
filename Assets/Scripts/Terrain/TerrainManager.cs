@@ -24,7 +24,7 @@ public class TerrainManager : MonoBehaviour
 
         for (int y = 0; y < height; y++){
             for (int x = 0; x < width; x++){
-                noise[x,y] = _noise.GetNoiseMap(x, y, _scale);
+                noise[x,y] = _noise.GetNoiseMap(x, y, _scale) - _noise.GetNoiseMap(x,y, _scale)/2 - _noise.GetNoiseMap(x,y, _scale)/4;
             }
         }
         setnoise(noise);

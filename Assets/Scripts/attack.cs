@@ -1,21 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class attack : MonoBehaviour
 {
-    public static GameObject bulletClone;
-    public static void shootAttack(string attackType, GameObject Bullet, int damagePower, Transform pos){
-        bulletClone = Instantiate(Bullet, pos.transform.position, Quaternion.identity) as GameObject;
-        bulletClone.AddComponent<FireBullet>();
+    public Material mat;
+    public void shootAttack(Vector3 startPos, GameObject end){
+        System.Random rnd = new System.Random();
+        int randX = rnd.Next(-20, 21);
+        int randZ = rnd.Next(-20, 21);
+        GameObject bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        bullet.transform.position = new Vector3(startPos.x + randX, startPos.y, startPos.z + randZ);
+        bullet.transform.rotation = Quaternion.LookRotation((end.transform.position - bullet.transform.position).normalized);
+        bullet.GetComponent<Renderer>().material = mat;
+        FireBullet bullScript = bullet.AddComponent<FireBullet>();
+        bullScript.setDestination(end);
+        bullScript.setMaterial(mat);
 
-        FireBullet BulletStats = bulletClone.GetComponent<FireBullet>();
-        BulletStats.damage = damagePower;
-        
-        bulletClone.AddComponent<Rigidbody>();
-        bulletClone.transform.rotation = pos.transform.rotation;
-        Rigidbody instBulletRigidbody = bulletClone.GetComponent<Rigidbody>();
-        instBulletRigidbody.AddForce(bulletClone.transform.forward * 1500);
-        Destroy(bulletClone, 1.1f);
+        bullet.AddComponent<Rigidbody>();
+        Rigidbody instBulletRigidbody = bullet.GetComponent<Rigidbody>();
+        instBulletRigidbody.AddForce(bullet.transform.forward * 1000);
+
+
+        // Destroy(bulletClone, 1.1f);
     }
 }

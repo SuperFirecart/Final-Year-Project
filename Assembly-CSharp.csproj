@@ -37,19 +37,27 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Movement.cs" />
+     <Compile Include="Assets\Scripts\EvilGrass.cs" />
+     <Compile Include="Assets\Scripts\MarchingCubes\GridMetrics.cs" />
+     <Compile Include="Assets\Scripts\MarchingCubes\Chunk.cs" />
      <Compile Include="Assets\Scripts\Terrain\TerrainManager.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\scores.cs" />
      <Compile Include="Assets\Scripts\TurnToCamera.cs" />
      <Compile Include="Assets\Scripts\attack.cs" />
+     <Compile Include="Assets\Scripts\AStar Algorithm\Node.cs" />
+     <Compile Include="Assets\Scripts\AStar Algorithm\AStarEdge.cs" />
+     <Compile Include="Assets\Scripts\AStar Algorithm\AStar.cs" />
      <Compile Include="Assets\Scripts\Terrain\Noise.cs" />
      <Compile Include="Assets\Scripts\MenuButtons.cs" />
      <Compile Include="Assets\Scripts\Terrain\PerlinNoise.cs" />
+     <Compile Include="Assets\Scripts\RandomPlatforms.cs" />
+     <Compile Include="Assets\Scripts\AStar Algorithm\Octree.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\MarchingCubes\NoiseGenerator.cs" />
      <Compile Include="Assets\Scripts\JumpPad.cs" />
      <Compile Include="Assets\Scripts\FireBullet.cs" />
-     <Compile Include="Assets\Scripts\MarchingCubes\NoiseGenerator.cs" />
-     <Compile Include="Assets\Scripts\MarchingCubes\Chunk.cs" />
-     <Compile Include="Assets\Scripts\MarchingCubes\GridMetrics.cs" />
+     <Compile Include="Assets\Scripts\ProximityText.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

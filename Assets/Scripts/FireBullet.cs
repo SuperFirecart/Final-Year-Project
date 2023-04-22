@@ -5,7 +5,8 @@ using UnityEngine;
 public class FireBullet : MonoBehaviour
 {
     Collider m_ObjectCollider;
-    public int damage;
+    private GameObject dest;
+    private Material mat;
 
     void Start()
     {
@@ -15,24 +16,26 @@ public class FireBullet : MonoBehaviour
         m_ObjectCollider.isTrigger = true;
     }
 
-    public void setDamage(int damagePower){
-        damage = damagePower;
+    public void setDestination(GameObject destination){
+        dest = destination;
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Enemy")
-        {
-            Enemy enemy = GameObject.Find(other.gameObject.name).GetComponent<Enemy>();
-            if (enemy.health - this.damage <= 0)
-            {
-                Destroy(other.gameObject, 0f);
-                print("Enemy Killed");
-            }
-            else
-            {
-                enemy.health -= this.damage;
-                enemy.setHealthText();
+    public void setMaterial(Material materialToSet){
+        mat = materialToSet;
+    }
+    void Update(){
+        if (dest == null){
+            enabled = false;
+            Destroy(gameObject);
+        }
+        else if (transform.position.x <= dest.transform.position.x + 1 && transform.position.x >= dest.transform.position.x - 1){
+            if (transform.position.y <= dest.transform.position.y + 1 && transform.position.y >= dest.transform.position.y - 1){
+                if (transform.position.z <= dest.transform.position.z + 1 && transform.position.z >= dest.transform.position.z - 1){
+                    dest.tag = "Grass";
+                    dest.GetComponent<BoxCollider>().isTrigger = true;
+                    dest.GetComponent<Renderer>().material = mat;
+                    enabled = false;
+                    Destroy(gameObject);
+                }
             }
         }
     }

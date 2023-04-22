@@ -15,7 +15,6 @@ public class Enemy : MonoBehaviour
     private CharacterController chara;
     private Movement move;
 
-    //Moves this GameObject 2 units a second in the forward direction
     void Start()
     {
         direction = new Vector3(0,0,0);
@@ -32,28 +31,28 @@ public class Enemy : MonoBehaviour
         // move.move(moveDirection);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name.Contains("Player"))
-        {
-            Player PlayerScript = GameObject.Find(other.gameObject.name).GetComponent<Player>();
-            if (PlayerScript.Invulnerability <= 0)
-            {
-                if (PlayerScript.health <= 0)
-                {
-                    /*Destroy(other.gameObject, 0f);*/
-                    PlayerScript.takeDamage(-20);
-                    PlayerScript.Invulnerability = 25f;
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.gameObject.name.Contains("Player"))
+    //     {
+    //         Player PlayerScript = GameObject.Find(other.gameObject.name).GetComponent<Player>();
+    //         if (PlayerScript.Invulnerability <= 0)
+    //         {
+    //             if (PlayerScript.health <= 0)
+    //             {
+    //                 /*Destroy(other.gameObject, 0f);*/
+    //                 PlayerScript.takeDamage(-20);
+    //                 PlayerScript.Invulnerability = 25f;
 
-                }
-                else
-                {
-                    PlayerScript.takeDamage(damage);
-                    PlayerScript.Invulnerability = 25f;
-                }
-            }
-        }
-    }
+    //             }
+    //             else
+    //             {
+    //                 PlayerScript.takeDamage(damage);
+    //                 PlayerScript.Invulnerability = 25f;
+    //             }
+    //         }
+    //     }
+    // }
 
     public void setHealthText() {
         healthText.gameObject.GetComponent<TMPro.TextMeshPro>().text = "Health: " + health;
